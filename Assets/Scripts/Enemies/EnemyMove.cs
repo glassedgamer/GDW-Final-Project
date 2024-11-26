@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMove : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
+
+    public int lives = 3;
 
     GameObject player;
 
@@ -32,5 +34,18 @@ public class EnemyMove : MonoBehaviour
             agent.enabled = true;
             agent.SetDestination(player.transform.position);
         } 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "pBullet") 
+        { 
+            Destroy(collision.gameObject);
+            lives--;
+
+            if (lives == 0) {
+                Destroy(this.gameObject);
+            }
+        }
     }
 }

@@ -24,5 +24,11 @@ public class BulletMove : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("I hit " + collision.gameObject.name);
+        Destroy(this.gameObject);
+    }
+
 
 }
