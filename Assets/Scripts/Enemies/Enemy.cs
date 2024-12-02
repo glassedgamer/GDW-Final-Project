@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
 
     public int lives = 3;
 
+    public float distThreshold = 10f;
+
     GameObject player;
 
     public NavMeshAgent agent;
@@ -29,7 +31,7 @@ public class Enemy : MonoBehaviour
 
         float playerDist = Vector3.Distance(enemyPos, playerPos);
 
-        if(playerDist < 5f)
+        if(playerDist < distThreshold)
         {
             agent.enabled = true;
             agent.SetDestination(player.transform.position);
