@@ -5,6 +5,8 @@ using UnityEngine;
 public class LongRangeEnemy : MonoBehaviour
 {
 
+    public int lives = 1;
+
     public float bulletSpeed = 1000f;
     [SerializeField] float timer = 5f;
     float bulletTime;
@@ -16,7 +18,7 @@ public class LongRangeEnemy : MonoBehaviour
     
     void Start()
     {
-        player = player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player");
 	}
 
     
@@ -49,4 +51,18 @@ public class LongRangeEnemy : MonoBehaviour
 
         Destroy(bulletClone, 3f);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "pBullet")
+        {
+            Destroy(collision.gameObject);
+            lives--;
+
+            if (lives == 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
+
 }

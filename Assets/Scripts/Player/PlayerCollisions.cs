@@ -17,8 +17,13 @@ public class PlayerCollisions : MonoBehaviour
         if (collision.gameObject.tag == "Enemy") 
         { 
             Destroy(collision.gameObject);
-            playerHealth.TakeDamage(5);
+            playerHealth.TakeDamage(10);
+        }
 
+        if (collision.gameObject.tag == "eBullet")
+        {
+            Destroy(collision.gameObject);
+            playerHealth.TakeDamage(5);
         }
     }
 }

@@ -48,6 +48,12 @@ public class Enemy : MonoBehaviour
             if (lives == 0) {
                 Destroy(this.gameObject);
             }
+        } 
+        if (collision.gameObject.tag == "Sword")
+        {
+            print("Sword");
+            
+            Destroy(this.gameObject);
         }
     }
 }

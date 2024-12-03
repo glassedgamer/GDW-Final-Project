@@ -22,9 +22,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform shootingPoint;
     [SerializeField] GameObject bulletPrefab;
 
+    [Header("Sword Stuff")]
+    [SerializeField] GameObject swordObject;
+
     [Header("Keybinds")]
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
     [SerializeField] KeyCode shootKey = KeyCode.Mouse0;
+    [SerializeField] KeyCode swingSwordKey = KeyCode.Mouse1;
 
     float groundDrag = 6f;
     float airDrag = 2f;
@@ -48,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        //swordObject = GameObject.FindWithTag("Sword");
+        swordObject.SetActive(false);
     }
 
     // Checks if on the ground, if there is player input, and updates drag
@@ -79,6 +86,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Instantiate(bulletPrefab, shootingPoint.position, shootingPoint.transform.rotation);
         }
+
+        if (Input.GetKeyDown(swingSwordKey))
+        {
+            StartCoroutine(SwingSword());
+        }
     }
 
     // Movement input
@@ -90,6 +102,13 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalMovement + orientation.right * horizontalMovement;
     }
 
+    IEnumerator SwingSword()
+    {
+        swordObject.SetActive(true);
+        yield return new WaitForSeconds(0.25f);
+        swordObject.SetActive(false);
+    }
+    
     // Big jump
     void Jump()
     {
