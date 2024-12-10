@@ -13,6 +13,14 @@ public class PlayerCollisions : MonoBehaviour
         playerHealth = GetComponent<PlayerHealth>();
     }
 
+    private void Update()
+    {
+        if (playerHealth.currentHealth <= 0) 
+        {
+            SceneManager.LoadScene("DeathScreen");
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy") 
