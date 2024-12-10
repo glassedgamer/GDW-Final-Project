@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollisions : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class PlayerCollisions : MonoBehaviour
         {
             Destroy(collision.gameObject);
             playerHealth.TakeDamage(5);
+        }
+
+        if (collision.gameObject.tag == "Portal")
+        {
+            SceneManager.LoadScene("WinScreen");
         }
     }
 }

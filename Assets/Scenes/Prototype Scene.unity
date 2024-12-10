@@ -1862,16 +1862,14 @@ MonoBehaviour:
     m_Bits: 64
   m_UseGeometry: 0
   m_DefaultArea: 0
-  m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 7a8892cbb5cec594cb15577acc64835c, type: 2}
   m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 7a8892cbb5cec594cb15577acc64835c, type: 2}
 --- !u!43 &837130994
 Mesh:
   m_ObjectHideFlags: 0
@@ -4038,6 +4036,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2691568328944010573, guid: 50ef4d1e6d6fe5c4a8ebc08886f57fb0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3108785389742632274, guid: 50ef4d1e6d6fe5c4a8ebc08886f57fb0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
