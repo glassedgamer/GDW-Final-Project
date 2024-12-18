@@ -13,12 +13,14 @@ public class LongRangeEnemy : MonoBehaviour
 
     public GameObject bulletPrefab;
     GameObject player;
+    AudioManager am;
 
     public Transform shootPoint;
     
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        am = FindObjectOfType<AudioManager>();
 	}
 
     
@@ -55,6 +57,7 @@ public class LongRangeEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "pBullet")
         {
+            am.Play("Player Hit");
             Destroy(collision.gameObject);
             lives--;
 

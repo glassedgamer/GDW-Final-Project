@@ -9,6 +9,8 @@ TagManager:
   - Sword
   - eBullet
   - Portal
+  - Long-Range
+  - Short-Range
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Ground
   - Hallway
   - Rooms
-  - 
+  - PostProcessing
   - 
   - 
   - 

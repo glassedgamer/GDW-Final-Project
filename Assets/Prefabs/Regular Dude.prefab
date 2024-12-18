@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 153163868915262724}
   m_Layer: 0
   m_Name: Regular Dude
-  m_TagString: Enemy
+  m_TagString: Short-Range
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   distThreshold: 10
+  shortRangeHitParticles: {fileID: 6735028288928607796, guid: 9916dff3461300842b57d76de8846025, type: 3}
   agent: {fileID: 2992489502188781996}
 --- !u!195 &2992489502188781996
 NavMeshAgent:

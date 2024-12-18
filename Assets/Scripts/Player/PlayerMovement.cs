@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     
     float playerHeight = 2f;
 
+    AudioManager am;
+
     [SerializeField] Transform orientation;
 
     [Header("Movement")]
@@ -53,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
+        am = FindObjectOfType<AudioManager>();
+
         //swordObject = GameObject.FindWithTag("Sword");
         swordObject.SetActive(false);
     }
@@ -84,11 +88,13 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(shootKey))
         {
+            am.Play("Fart");
             Instantiate(bulletPrefab, shootingPoint.position, shootingPoint.transform.rotation);
         }
 
         if (Input.GetKeyDown(swingSwordKey))
         {
+            am.Play("Sword Slice");
             StartCoroutine(SwingSword());
         }
     }

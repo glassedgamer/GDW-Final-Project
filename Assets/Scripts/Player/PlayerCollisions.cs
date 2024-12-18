@@ -7,10 +7,12 @@ public class PlayerCollisions : MonoBehaviour
 {
 
     PlayerHealth playerHealth;
+    AudioManager am;
 
     private void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
+        am = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -23,16 +25,18 @@ public class PlayerCollisions : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy") 
+        if (collision.gameObject.tag == "Short-Range") 
         { 
+            am.Play("Player Hit");
             Destroy(collision.gameObject);
-            playerHealth.TakeDamage(10);
+            playerHealth.TakeDamage(15);
         }
 
         if (collision.gameObject.tag == "eBullet")
         {
+            am.Play("Player Hit");
             Destroy(collision.gameObject);
-            playerHealth.TakeDamage(5);
+            playerHealth.TakeDamage(10);
         }
 
         if (collision.gameObject.tag == "Portal")
